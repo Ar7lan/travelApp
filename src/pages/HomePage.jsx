@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import HomeCarousel from '../components/home/HomeCarousel'
 import { PrimaryButton, SecondaryButton } from '../components/ui/Button'
 import aboutPreviewImage from '../assets/about_us_1.avif'
@@ -35,7 +35,7 @@ export default function HomePage() {
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {featuredCards.map((card) => (
             <article key={card.title} className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-              <img src={card.image} alt={card.title} className="h-48 w-full object-cover transition duration-700 hover:scale-105" />
+              <img src={card.image?.src || card.image} alt={card.title} className="h-48 w-full object-cover transition duration-700 hover:scale-105" />
               <div className="p-3 text-left">
                 <p className="text-sm font-semibold text-slate-900">{card.title}</p>
                 <p className="mt-1 text-xs text-slate-500">{card.days}</p>
@@ -44,7 +44,7 @@ export default function HomePage() {
           ))}
         </div>
         <div className="mt-6">
-          <Link to="/packages">
+          <Link href="/packages">
             <PrimaryButton>Explore More</PrimaryButton>
           </Link>
         </div>
@@ -53,7 +53,7 @@ export default function HomePage() {
       <section className="overflow-hidden rounded-3xl border border-green-200 bg-white shadow-sm">
         <div className="grid md:grid-cols-[1.05fr_1fr]">
           <div className="group relative overflow-hidden">
-            <img src={aboutPreviewImage} alt="North Grace Travellers scenic destination" className="h-64 w-full object-cover transition-transform duration-700 group-hover:scale-105 sm:h-80 md:h-full" />
+            <img src={aboutPreviewImage?.src || aboutPreviewImage} alt="North Grace Travellers scenic destination" className="h-64 w-full object-cover transition-transform duration-700 group-hover:scale-105 sm:h-80 md:h-full" />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/20 via-black/5 to-transparent" />
           </div>
           <div className="flex items-center bg-gradient-to-br from-white via-green-50 to-white p-6 sm:p-8 md:p-10">
@@ -65,7 +65,7 @@ export default function HomePage() {
                 transparency, and zero stress.
               </p>
               <div className="mt-5">
-                <Link to="/about">
+                <Link href="/about">
                   <SecondaryButton>Read More About Us</SecondaryButton>
                 </Link>
               </div>
@@ -78,7 +78,7 @@ export default function HomePage() {
       <section className="rounded-3xl border border-green-100 bg-[#eef4ff] p-5 sm:p-8">
         <h3 className="text-center text-2xl font-bold text-[#417e38] sm:text-3xl">Experience and Service</h3>
         <div className="mt-6 grid gap-4 md:grid-cols-[1fr_1.3fr]">
-          <img src={home4} alt="Travel service" className="h-64 w-full rounded-2xl object-cover md:h-full" />
+          <img src={home4?.src || home4} alt="Travel service" className="h-64 w-full rounded-2xl object-cover md:h-full" />
           <div className="grid gap-3 sm:grid-cols-2">
             {serviceHighlights.map((item) => (
               <div key={item.title} className={`rounded-2xl p-4 ${item.tone}`}>
@@ -138,7 +138,7 @@ export default function HomePage() {
             </div>
             <div className="mt-4 flex flex-col gap-2 sm:flex-row">
               <PrimaryButton className="w-full bg-[#417e38] py-2.5 text-sm hover:bg-[#35692f] sm:w-auto">Send Message</PrimaryButton>
-              <Link to="/contact" className="w-full sm:w-auto">
+              <Link href="/contact" className="w-full sm:w-auto">
                 <SecondaryButton className="w-full border-slate-300 text-slate-700 hover:bg-slate-100">Open Full Contact Page</SecondaryButton>
               </Link>
             </div>

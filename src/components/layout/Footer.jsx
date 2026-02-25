@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import logo from '../../assets/Logo.jpg'
 
 export default function Footer() {
@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="mx-auto grid w-full max-w-6xl gap-6 px-4 py-10 text-slate-700 sm:px-6 md:grid-cols-3 lg:px-8">
         <div>
           <div className="flex items-center gap-3">
-            <img src={logo} alt="North Grace Travellers logo" className="h-10 w-auto rounded-md object-contain" />
+            <img src={logo?.src || logo} alt="North Grace Travellers logo" className="h-10 w-auto rounded-md object-contain" />
             <h4 className="text-lg font-bold text-slate-900">North Grace Travellers</h4>
           </div>
           <p className="mt-2 text-sm text-slate-600">Guided tours across Kashmir and the North with trusted support.</p>
@@ -15,9 +15,9 @@ export default function Footer() {
         <div>
           <h4 className="text-sm font-semibold uppercase tracking-wide text-slate-900">Quick Links</h4>
           <div className="mt-2 flex flex-col gap-1 text-sm">
-            <Link to="/">Home</Link>
-            <Link to="/about">About</Link>
-            <Link to="/packages">Packages</Link>
+            <Link href="/">Home</Link>
+            <Link href="/about">About</Link>
+            <Link href="/packages">Packages</Link>
           </div>
         </div>
         <div>

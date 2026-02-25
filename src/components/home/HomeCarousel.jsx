@@ -1,5 +1,7 @@
+'use client'
+
+import Link from 'next/link'
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
 import { PrimaryButton, SecondaryButton } from '../ui/Button'
 
 function slideBackground(slide, isActive) {
@@ -8,10 +10,12 @@ function slideBackground(slide, isActive) {
   const scale = isActive ? 'scale-100' : 'scale-110'
 
   if (slide.image) {
+    const imageUrl = slide.image?.src || slide.image
+
     return (
       <div
         className={`${base} ${visibility} ${scale} bg-cover bg-center`}
-        style={{ backgroundImage: `url(${slide.image})` }}
+        style={{ backgroundImage: `url(${imageUrl})` }}
         aria-hidden={!isActive}
       />
     )
@@ -71,10 +75,10 @@ export default function HomeCarousel({ slides }) {
         </div>
 
         <div className="absolute inset-x-0 bottom-8 flex flex-col items-center justify-center gap-3 px-4 sm:bottom-12 sm:flex-row">
-          <Link to="/packages">
+          <Link href="/packages">
             <PrimaryButton className="min-w-44 shadow-lg">Explore Packages</PrimaryButton>
           </Link>
-          <Link to="/contact">
+          <Link href="/contact">
             <SecondaryButton className="min-w-44 shadow-lg">Contact Us</SecondaryButton>
           </Link>
         </div>

@@ -31,7 +31,7 @@ export default function AboutPage() {
         <div className="grid md:grid-cols-[1.05fr_1fr]">
           <div className="group relative overflow-hidden">
             <img
-              src={aboutPreviewImage}
+              src={aboutPreviewImage?.src || aboutPreviewImage}
               alt="Scenic valley destination"
               className="h-64 w-full object-cover transition-transform duration-700 group-hover:scale-105 sm:h-80 md:h-full"
             />
@@ -85,7 +85,7 @@ export default function AboutPage() {
 
       <section className="animate-fade-up animate-delay-300 overflow-hidden rounded-3xl bg-[#1748a5] p-5 text-white sm:p-8">
         <div className="grid gap-6 md:grid-cols-[1fr_1.2fr] md:items-center">
-          <img src={valleyImage} alt="Mountain valley" className="h-52 w-full rounded-2xl object-cover sm:h-64" />
+          <img src={valleyImage?.src || valleyImage} alt="Mountain valley" className="h-52 w-full rounded-2xl object-cover sm:h-64" />
           <div>
             <h3 className="text-xl font-bold sm:text-3xl">Experience the North with confidence</h3>
             <p className="mt-2 text-sm text-blue-100">Trusted support, strong local network, and journeys designed around your comfort.</p>
